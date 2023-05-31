@@ -7,7 +7,8 @@
     <title>Document</title>
     <style>
         .outer-box {
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 400px;
             background-color: red;
             display: flex;
@@ -23,6 +24,7 @@
             font-weight: bold;
             letter-spacing: 0.2rem;
         }
+
         .middle{
             background-color: yellow;
             height: 100%;
@@ -32,22 +34,34 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            display: flex;
             flex-direction: column;
         }
+
         .imageSection{
             height: 70%;
             width: 70%;
         }
+
         .imageSection img{
             height: 100%;
             width: 100%;
-            /* border-radius: 50%; */
-            background-position: top right;
         }
+
         div.text{
             font-weight: bold;
             font-size: larger;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .outer-box {
+                height: auto;
+            }
+
+            .middle {
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
         }
     </style>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
