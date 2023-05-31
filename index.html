@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer-box {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .top-section, .bottom-section {
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            letter-spacing: 0.2rem;
+        }
+        .middle{
+            background-color: yellow;
+            height: 100%;
+            width: 75%;
+            margin-left: 40px;
+            margin-right: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .imageSection{
+            height: 70%;
+            width: 70%;
+        }
+        .imageSection img{
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background-position: top right;
+        }
+        div.text{
+            font-weight: bold;
+            font-size: larger;
+        }
+    </style>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="outer-box" id="myDiv">
+        <div class="top-section">
+            പ്രവേശനോത്സവം
+        </div>
+        <div class="middle">
+            <div class="text">
+                ഞാനും പങ്കാളിയാകുന്നു
+                <br>
+            </div>
+            <div class="imageSection">
+                <img id="uploadedImage" src="#" alt="">
+            </div>
+            
+        </div>
+        <div class="bottom-section">
+            ജി.യു 'പി.എസ്.പാങ്ങ്
+        </div>
+    </div>
+    <br>
+    <input type="file" accept="image/*" onchange="changeImage(event)">
+    <br>
+    <button onclick="downloadImage()">Generate Image</button>
+    <script>
+        function changeImage(event) {
+            var uploadedImage = document.getElementById("uploadedImage");
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                uploadedImage.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function downloadImage() {
+            html2canvas(document.querySelector("#myDiv")).then(function(canvas) {
+                // Create a link element
+                var link = document.createElement('a');
+                link.download = 'image.png';
+                link.href = canvas.toDataURL("image/svg");
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
