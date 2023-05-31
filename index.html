@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GUPS PANG</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        body{
+            background-image: url('/baloon.jpg');
+            background-position:top left;
+            
+        }
         @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap'); /* Import a Malayalam font */
         label{
             font-weight: bolder;
@@ -50,7 +55,14 @@
         .imageSection img{
             height: 100%;
             width: 100%;
+            animation: balloonFly 5s linear infinite; /* Add the balloon flying animation */
         }
+
+        /* @keyframes balloonFly {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        } */
 
         div.text{
             font-weight: bold;
